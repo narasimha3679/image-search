@@ -4,18 +4,16 @@ import unsplash from "../api/unsplash";
 import ImageList from "./ImageList";
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onSearchSubmit()
-    }
+
     // initialising state images
     state = {images: []}
 
+    // this method is called when user enter search term and enter submit in searchbar component
     onSearchSubmit = async term => {
         const response = await unsplash.get('/search/photos', {
             params: {query: term},
         })
-
+        //components state images is updates with api response
         this.setState({images: response.data.results})
     }
 

@@ -9,14 +9,16 @@ class SearchBar extends React.Component {
     onInputChange = (event) => {
         this.setState({term: event.target.value});
     }
-
+    // on submit search term is passed to a function inside its parent component
     onFormSubmit = (event) => {
         event.preventDefault();
         this.props.onSubmit(this.state.term);
     }
 
+
     render() {
         return (
+            // this is a search bar form to enter search terms
             <div className="ui segment">
                 <form onSubmit={this.onFormSubmit} className="ui form">
                     <div className="field">
